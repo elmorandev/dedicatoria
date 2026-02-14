@@ -9,15 +9,21 @@ const signature = document.getElementById('signature');
 const fadeTransitionContainer = document.querySelector('.fade-transition-container');
 
 // Mensaje dedicatoria
-const dedicatoryMessage = `Hoy quiero dedicarte algo especial, porque eres una persona increíble.
+const dedicatoryMessage = `Zori preciosa, quien diría que el reencuentro en julio de 2023 
+terminaría tan enganchado  a una persona tan hermosa y picada como tu. 
+Hemos pasado por mil situaciones que nos alejaron y nos volvieron a juntar,
+pero aquí estamos, y la verdad es que no lo cambio por nada.
 
-Cada detalle de este jardín representa un momento, una sonrisa, y la belleza de conocerte.
+Es lo hermoso de nuestra dinámica: desde cómo nos tratamos hasta ese jadeo tan tuyo cuando te sientes halagada (me doy cuenta y me fascina).
+Como hoy es un día especial, no quería dejar pasar la oportunidad de 
+preguntarte formalmente: 
 
-Espero que este pequeño gesto ilumine tu día tanto como tú iluminas el mío.
+¿Quieres ser mi San Valentín? ❤️
 
-Feliz San Valentín. ❤️`;
+No es competencia, pero si dices que sí, creo que esta vez gano yo por 
+permitirme estar a tu lado.`;
 
-const authorName = '- Joao Nevárez';
+const authorName = '- Joao Nevárez (Elmorandx) ';
 
 // Función para pasar a la página 2 (transición)
 heartClick.addEventListener('click', () => {
@@ -56,7 +62,7 @@ function startTypingAnimation() {
     typedText.textContent = '';
 
     let index = 0;
-    const speed = 30; // velocidad en ms
+    const speed = 40; // velocidad en ms
 
     function typeCharacter() {
         if (index < dedicatoryMessage.length) {
@@ -65,8 +71,11 @@ function startTypingAnimation() {
             index++;
             setTimeout(typeCharacter, speed);
         } else {
-            // Terminar escritura y mostrar firma
-            typedText.classList.remove('typing');
+            // Terminar escritura
+            typedText.classList.remove('typing'); // (Opcional si usas mi CSS nuevo)
+            typedText.classList.add('finished');  // <--- AGREGA ESTO para ocultar el cursor
+
+            // Mostrar firma
             signature.textContent = authorName;
             signature.classList.add('visible');
         }

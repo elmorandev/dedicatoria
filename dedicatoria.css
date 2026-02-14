@@ -17,14 +17,21 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    /* Esto centra verticalmente */
     align-items: center;
+    /* Esto centra horizontalmente */
     min-height: 100vh;
+    /* Fallback para navegadores viejos */
+    min-height: 100dvh;
+    /* IMPORTANTE: Altura dinámica real en móviles */
     width: 100%;
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
+    overflow: hidden;
+    /* Evita scrolls indeseados de toda la página */
 }
 
 /* TRANSICIONES ENTRE PÁGINAS */
@@ -161,32 +168,124 @@ body {
     z-index: 30;
 }
 
-/* CARTA CENTRADA EN PAGE3 */
+/* ===================== CARTA MEJORADA ===================== */
+
 .letter-section {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -55%);
-    min-width: 300px;
-    max-width: 500px;
-    width: 90%;
-    z-index: 50;
+    position: relative;
+    z-index: 20;
+    /* Por encima de nubes y girasoles */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    /* Separación superior */
+    margin-bottom: 180px;
+    /* Espacio inferior para ver los girasoles del footer */
+    box-sizing: border-box;
 }
 
 .card-letter {
-    background-color: rgba(255, 255, 255, 0.95);
-    padding: 2.5rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    text-align: left;
-    min-height: 200px;
+    background: #fffcf5;
+    /* Color papel crema suave */
+    width: 100%;
+    max-width: 600px;
+    /* Ancho máximo de lectura cómodo */
+    min-height: 300px;
+    /* Limitamos la altura para que no tape toda la pantalla si el texto es muy largo */
     max-height: 60vh;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    backdrop-filter: blur(10px);
-    animation: card-entrance 1s ease-out forwards;
+    /* Scroll suave si el texto es muy largo */
+
+    padding: 40px;
+    border-radius: 15px;
+    /* Bordes redondeados */
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.15),
+        /* Sombra principal */
+        0 0 0 1px rgba(0, 0, 0, 0.02);
+    /* Borde sutil */
+
+    /* Tipografía manuscrita pero legible */
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.3rem;
+    line-height: 1.8;
+    /* Espaciado entre líneas para que respire */
+    color: #4e342e;
+    /* Color café oscuro (más suave que el negro) */
+
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+/* Scrollbar personalizado y bonito (para Chrome/Safari/Edge) */
+.card-letter::-webkit-scrollbar {
+    width: 8px;
+}
+
+.card-letter::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.card-letter::-webkit-scrollbar-thumb {
+    background: #d7ccc8;
+    border-radius: 4px;
+}
+
+.card-letter::-webkit-scrollbar-thumb:hover {
+    background: #a1887f;
+}
+
+/* Área de escritura */
+.typing-area {
+    white-space: pre-line;
+    /* Respeta los saltos de línea del JS */
+    min-height: 150px;
+}
+
+/* Cursor de máquina de escribir */
+.typing-area::after {
+    content: '|';
+    display: inline-block;
+    animation: blink 0.7s infinite;
+    color: #e91e63;
+}
+
+/* Clase para ocultar el cursor cuando termine de escribir */
+.typing-area.finished::after {
+    display: none;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Firma destacada */
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #c2185b;
+    /* Rosa oscuro elegante */
+    text-align: right;
+    margin-top: 30px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.signature.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 @keyframes card-entrance {
@@ -855,4 +954,71 @@ body {
     background: linear-gradient(to top, #4CAF50, #2E7D32);
     z-index: 5;
     border-top: 2px solid #66BB6A;
+}
+
+/* ===================== RESPONSIVE (MÓVIL) ===================== */
+
+@media (max-width: 768px) {
+
+    /* 1. Ajustar la posición de la carta */
+    .letter-section {
+        margin-bottom: 100px;
+        /* Reducimos el margen inferior (antes 180px) para bajar la carta */
+        padding: 15px;
+        /* Menos padding lateral */
+        align-items: center;
+        /* Asegura centrado vertical */
+    }
+
+    /* 2. Optimizar el tamaño de la carta */
+    .card-letter {
+        padding: 25px;
+        /* Más espacio interno para texto */
+        max-height: 65dvh;
+        /* Permitir que sea un poco más alta si es necesario */
+        width: 90%;
+        /* Que ocupe buen ancho */
+        font-size: 1.1rem;
+        /* Letra un pelín más pequeña pero legible */
+    }
+
+    /* 3. Ajustar el título o firma */
+    .signature {
+        font-size: 1.5rem;
+        margin-top: 20px;
+    }
+
+    /* 4. Reducir altura del jardín para dar espacio a la carta */
+    .garden-footer {
+        height: 160px;
+        /* Flores más bajitas para que no tapen la carta */
+    }
+
+    /* 5. Ajustar tamaño de girasoles individuales */
+    .sunflower-wrapper {
+        width: 60px;
+        height: 120px;
+    }
+
+    .s-1 {
+        width: 50px;
+        height: 110px;
+    }
+
+    .s-2 {
+        width: 70px;
+        height: 140px;
+    }
+
+    /* El más alto */
+    .s-3 {
+        width: 45px;
+        height: 90px;
+    }
+
+    /* Ocultar girasoles extra si hay demasiados para el ancho del móvil */
+    .sunflower-row .sunflower-wrapper:nth-child(1),
+    .sunflower-row .sunflower-wrapper:nth-last-child(1) {
+        display: none;
+    }
 }
