@@ -1,0 +1,530 @@
+/* ESTILOS GENERALES */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F6FF 50%, #fce4ec 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #880e4f;
+    overflow: hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+/* TRANSICIONES ENTRE PÁGINAS */
+.page-1,
+.page-2,
+.page-3 {
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+/* ===================== PÁGINA 1: PRESENTACIÓN ===================== */
+
+/* CORAZÓN ANIMADO */
+.heart {
+    color: #e91e63;
+    font-size: 8rem;
+    animation: latido 1.5s infinite;
+    margin-bottom: 3rem;
+    text-shadow: 0 4px 15px rgba(233, 30, 99, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.heart:hover {
+    transform: scale(1.1);
+}
+
+.heart:active {
+    transform: scale(0.95);
+}
+
+@keyframes latido {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+/* DEDICATORIA */
+.dedication {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.8rem;
+    color: #880e4f;
+    margin: 0;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+/* ===================== PÁGINA 2: TRANSICIÓN ===================== */
+
+.fade-transition-container {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #880e4f;
+    animation: fadeInOut 4s infinite;
+    cursor: pointer;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* ===================== PÁGINA 3: CARTA + JARDÍN ===================== */
+
+.page-3 {
+    padding: 2rem;
+    z-index: 20;
+    background: linear-gradient(to bottom, 
+        #87CEEB 0%, 
+        #B0E2FF 30%, 
+        #FFE4B5 60%, 
+        #fce4ec 100%
+    );
+}
+
+/* BOTÓN VOLVER EN LA PARTE SUPERIOR */
+.back-btn-top {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background-color: #87CEEB;
+    opacity: 0.5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.back-btn-top:hover {
+    background-color: #87CEEB;
+    transform: translateY(-2px);
+}
+
+.back-btn-top:active {
+    transform: scale(0.98);
+}
+
+/* WRAPPER DE CONTENIDO (DOS COLUMNAS) */
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1400px;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 30;
+}
+
+/* LADO IZQUIERDO: CARTA */
+.letter-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.card-letter {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2.5rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    backdrop-filter: blur(10px);
+}
+
+/* ÁREA DE ESCRITURA CON ANIMACIÓN */
+.typing-area {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #555;
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    min-height: 200px;
+}
+
+/* CURSOR DE ESCRITURA */
+.typing-area.typing::after {
+    content: '|';
+    animation: blink 0.7s infinite;
+    color: #e91e63;
+    font-weight: bold;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* FIRMA */
+.signature {
+    font-family: 'Times New Roman', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: #880e4f;
+    margin-top: 1.5rem;
+    border-top: 1px solid #f8bbd0;
+    padding-top: 1rem;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.signature.visible {
+    opacity: 1;
+}
+
+/* ===================== JARDÍN DE GIRASOLES MEJORADO ===================== */
+
+.garden-section {
+    flex: 1;
+    min-width: 300px;
+    max-width: 600px;
+    height: 500px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.sunflower-garden {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+/* CIELO Y NUBES DE FONDO */
+.sky-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to bottom, #87CEEB, #E0F6FF);
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+    opacity: 0.7;
+    animation: float-clouds 20s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: white;
+    border-radius: 100px;
+}
+
+.cloud-1 {
+    width: 80px;
+    height: 30px;
+    top: 20%;
+    left: -100px;
+    animation-duration: 25s;
+}
+
+.cloud-1::before {
+    width: 50px;
+    height: 40px;
+    top: -20px;
+    left: 10px;
+}
+
+.cloud-1::after {
+    width: 60px;
+    height: 35px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud-2 {
+    width: 100px;
+    height: 35px;
+    top: 40%;
+    left: -150px;
+    animation-duration: 30s;
+    animation-delay: 5s;
+}
+
+.cloud-2::before {
+    width: 60px;
+    height: 45px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud-2::after {
+    width: 70px;
+    height: 40px;
+    top: -20px;
+    right: 15px;
+}
+
+@keyframes float-clouds {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(100vw + 200px)); }
+}
+
+/* BASE DE TIERRA */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to bottom, #8B6914, #654321);
+    border-radius: 0 0 15px 15px;
+    z-index: 1;
+}
+
+.grass {
+    position: absolute;
+    bottom: 35px;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to top, #4CAF50 0%, transparent 100%);
+    z-index: 2;
+}
+
+/* GIRASOLES SVG */
+.sunflower-svg {
+    position: absolute;
+    bottom: 40px;
+    transform-origin: bottom center;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: filter 0.3s ease;
+}
+
+.sunflower-svg:hover {
+    filter: drop-shadow(0 0 15px rgba(255, 193, 7, 0.7));
+    cursor: pointer;
+}
+
+/* POSICIONAMIENTO Y TAMAÑOS DE GIRASOLES */
+.s-1 {
+    width: 90px;
+    height: 180px;
+    left: 5%;
+    z-index: 3;
+    animation: wind-gentle 4s ease-in-out infinite;
+}
+
+.s-2 {
+    width: 120px;
+    height: 240px;
+    left: 20%;
+    z-index: 5;
+    animation: wind-moderate 3.5s ease-in-out infinite 0.5s;
+}
+
+.s-3 {
+    width: 140px;
+    height: 280px;
+    left: 40%;
+    z-index: 7;
+    animation: wind-strong 4.5s ease-in-out infinite 1s;
+}
+
+.s-4 {
+    width: 110px;
+    height: 220px;
+    left: 60%;
+    z-index: 6;
+    animation: wind-gentle 3.8s ease-in-out infinite 1.5s;
+}
+
+.s-5 {
+    width: 95px;
+    height: 190px;
+    left: 75%;
+    z-index: 4;
+    animation: wind-moderate 4.2s ease-in-out infinite 2s;
+}
+
+.s-6 {
+    width: 85px;
+    height: 170px;
+    left: 88%;
+    z-index: 3;
+    animation: wind-gentle 4s ease-in-out infinite 2.5s;
+}
+
+/* ANIMACIONES DE VIENTO VARIADAS */
+@keyframes wind-gentle {
+    0%, 100% { transform: rotate(-2deg) translateX(-1px); }
+    25% { transform: rotate(1deg) translateX(1px); }
+    50% { transform: rotate(2deg) translateX(2px); }
+    75% { transform: rotate(0deg) translateX(0px); }
+}
+
+@keyframes wind-moderate {
+    0%, 100% { transform: rotate(-3deg) translateX(-2px); }
+    30% { transform: rotate(2deg) translateX(2px); }
+    60% { transform: rotate(3deg) translateX(3px); }
+    80% { transform: rotate(-1deg) translateX(-1px); }
+}
+
+@keyframes wind-strong {
+    0%, 100% { transform: rotate(-4deg) translateX(-3px); }
+    20% { transform: rotate(1deg) translateX(1px); }
+    40% { transform: rotate(4deg) translateX(4px); }
+    60% { transform: rotate(2deg) translateX(2px); }
+    80% { transform: rotate(-2deg) translateX(-2px); }
+}
+
+/* ANIMACIÓN DE CABEZA DE GIRASOL */
+.flower-head {
+    transform-origin: center;
+    animation: sun-seek 10s ease-in-out infinite;
+}
+
+@keyframes sun-seek {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(1px, -1px) rotate(3deg); }
+    50% { transform: translate(2px, 1px) rotate(-2deg); }
+    75% { transform: translate(-1px, 0px) rotate(2deg); }
+}
+
+/* PARTÍCULAS FLOTANTES (SEMILLAS/POLEN) */
+.particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 215, 0, 0.6);
+    border-radius: 50%;
+    animation: float-particles 8s linear infinite;
+}
+
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 25%; animation-delay: 1s; }
+.particle:nth-child(3) { left: 40%; animation-delay: 2s; }
+.particle:nth-child(4) { left: 60%; animation-delay: 3s; }
+.particle:nth-child(5) { left: 75%; animation-delay: 4s; }
+.particle:nth-child(6) { left: 90%; animation-delay: 5s; }
+
+@keyframes float-particles {
+    0% {
+        transform: translateY(100%) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.6;
+    }
+    90% {
+        opacity: 0.6;
+    }
+    100% {
+        transform: translateY(-100vh) translateX(50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+@media (max-width: 1024px) {
+    .content-wrapper {
+        gap: 2rem;
+    }
+    
+    .letter-section,
+    .garden-section {
+        min-width: 250px;
+        max-width: 400px;
+    }
+    
+    .garden-section {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .garden-section {
+        height: 350px;
+    }
+    
+    .card-letter {
+        min-height: auto;
+    }
+    
+    .sunflower-svg {
+        transform: scale(0.9);
+    }
+}
+
+@media (max-width: 480px) {
+    .garden-section {
+        height: 300px;
+    }
+    
+    .sunflower-svg {
+        transform: scale(0.75);
+    }
+    
+    .heart {
+        font-size: 6rem;
+    }
+    
+    .dedication {
+        font-size: 1.4rem;
+    }
+}
