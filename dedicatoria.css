@@ -64,9 +64,17 @@ body {
 }
 
 @keyframes latido {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 /* DEDICATORIA */
@@ -90,8 +98,15 @@ body {
 }
 
 @keyframes fadeInOut {
-    0%, 100% { opacity: 0.5; }
-    50% { opacity: 1; }
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
 }
 
 /* ===================== PÁGINA 3: CARTA + JARDÍN ===================== */
@@ -99,12 +114,11 @@ body {
 .page-3 {
     padding: 2rem;
     z-index: 20;
-    background: linear-gradient(to bottom, 
-        #87CEEB 0%, 
-        #B0E2FF 30%, 
-        #FFE4B5 60%, 
-        #fce4ec 100%
-    );
+    background: linear-gradient(to bottom,
+            #87CEEB 0%,
+            #B0E2FF 30%,
+            #FFE4B5 60%,
+            #fce4ec 100%);
 }
 
 /* BOTÓN VOLVER EN LA PARTE SUPERIOR */
@@ -147,11 +161,16 @@ body {
     z-index: 30;
 }
 
-/* LADO IZQUIERDO: CARTA */
+/* CARTA CENTRADA EN PAGE3 */
 .letter-section {
-    flex: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
     min-width: 300px;
     max-width: 500px;
+    width: 90%;
+    z-index: 50;
 }
 
 .card-letter {
@@ -160,11 +179,26 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     text-align: left;
-    min-height: 400px;
+    min-height: 200px;
+    max-height: 60vh;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     backdrop-filter: blur(10px);
+    animation: card-entrance 1s ease-out forwards;
+}
+
+@keyframes card-entrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
 /* ÁREA DE ESCRITURA CON ANIMACIÓN */
@@ -188,8 +222,16 @@ body {
 }
 
 @keyframes blink {
-    0%, 49% { opacity: 1; }
-    50%, 100% { opacity: 0; }
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
 }
 
 /* FIRMA */
@@ -307,8 +349,13 @@ body {
 }
 
 @keyframes float-clouds {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(100vw + 200px)); }
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100vw + 200px));
+    }
 }
 
 /* BASE DE TIERRA */
@@ -396,25 +443,67 @@ body {
 
 /* ANIMACIONES DE VIENTO VARIADAS */
 @keyframes wind-gentle {
-    0%, 100% { transform: rotate(-2deg) translateX(-1px); }
-    25% { transform: rotate(1deg) translateX(1px); }
-    50% { transform: rotate(2deg) translateX(2px); }
-    75% { transform: rotate(0deg) translateX(0px); }
+
+    0%,
+    100% {
+        transform: rotate(-2deg) translateX(-1px);
+    }
+
+    25% {
+        transform: rotate(1deg) translateX(1px);
+    }
+
+    50% {
+        transform: rotate(2deg) translateX(2px);
+    }
+
+    75% {
+        transform: rotate(0deg) translateX(0px);
+    }
 }
 
 @keyframes wind-moderate {
-    0%, 100% { transform: rotate(-3deg) translateX(-2px); }
-    30% { transform: rotate(2deg) translateX(2px); }
-    60% { transform: rotate(3deg) translateX(3px); }
-    80% { transform: rotate(-1deg) translateX(-1px); }
+
+    0%,
+    100% {
+        transform: rotate(-3deg) translateX(-2px);
+    }
+
+    30% {
+        transform: rotate(2deg) translateX(2px);
+    }
+
+    60% {
+        transform: rotate(3deg) translateX(3px);
+    }
+
+    80% {
+        transform: rotate(-1deg) translateX(-1px);
+    }
 }
 
 @keyframes wind-strong {
-    0%, 100% { transform: rotate(-4deg) translateX(-3px); }
-    20% { transform: rotate(1deg) translateX(1px); }
-    40% { transform: rotate(4deg) translateX(4px); }
-    60% { transform: rotate(2deg) translateX(2px); }
-    80% { transform: rotate(-2deg) translateX(-2px); }
+
+    0%,
+    100% {
+        transform: rotate(-4deg) translateX(-3px);
+    }
+
+    20% {
+        transform: rotate(1deg) translateX(1px);
+    }
+
+    40% {
+        transform: rotate(4deg) translateX(4px);
+    }
+
+    60% {
+        transform: rotate(2deg) translateX(2px);
+    }
+
+    80% {
+        transform: rotate(-2deg) translateX(-2px);
+    }
 }
 
 /* ANIMACIÓN DE CABEZA DE GIRASOL */
@@ -424,10 +513,23 @@ body {
 }
 
 @keyframes sun-seek {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25% { transform: translate(1px, -1px) rotate(3deg); }
-    50% { transform: translate(2px, 1px) rotate(-2deg); }
-    75% { transform: translate(-1px, 0px) rotate(2deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(1px, -1px) rotate(3deg);
+    }
+
+    50% {
+        transform: translate(2px, 1px) rotate(-2deg);
+    }
+
+    75% {
+        transform: translate(-1px, 0px) rotate(2deg);
+    }
 }
 
 /* PARTÍCULAS FLOTANTES (SEMILLAS/POLEN) */
@@ -451,24 +553,50 @@ body {
     animation: float-particles 8s linear infinite;
 }
 
-.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-.particle:nth-child(2) { left: 25%; animation-delay: 1s; }
-.particle:nth-child(3) { left: 40%; animation-delay: 2s; }
-.particle:nth-child(4) { left: 60%; animation-delay: 3s; }
-.particle:nth-child(5) { left: 75%; animation-delay: 4s; }
-.particle:nth-child(6) { left: 90%; animation-delay: 5s; }
+.particle:nth-child(1) {
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.particle:nth-child(2) {
+    left: 25%;
+    animation-delay: 1s;
+}
+
+.particle:nth-child(3) {
+    left: 40%;
+    animation-delay: 2s;
+}
+
+.particle:nth-child(4) {
+    left: 60%;
+    animation-delay: 3s;
+}
+
+.particle:nth-child(5) {
+    left: 75%;
+    animation-delay: 4s;
+}
+
+.particle:nth-child(6) {
+    left: 90%;
+    animation-delay: 5s;
+}
 
 @keyframes float-particles {
     0% {
         transform: translateY(100%) translateX(0) rotate(0deg);
         opacity: 0;
     }
+
     10% {
         opacity: 0.6;
     }
+
     90% {
         opacity: 0.6;
     }
+
     100% {
         transform: translateY(-100vh) translateX(50px) rotate(360deg);
         opacity: 0;
@@ -480,13 +608,13 @@ body {
     .content-wrapper {
         gap: 2rem;
     }
-    
+
     .letter-section,
     .garden-section {
         min-width: 250px;
         max-width: 400px;
     }
-    
+
     .garden-section {
         height: 400px;
     }
@@ -497,15 +625,15 @@ body {
         flex-direction: column;
         gap: 3rem;
     }
-    
+
     .garden-section {
         height: 350px;
     }
-    
+
     .card-letter {
         min-height: auto;
     }
-    
+
     .sunflower-svg {
         transform: scale(0.9);
     }
@@ -515,16 +643,216 @@ body {
     .garden-section {
         height: 300px;
     }
-    
+
     .sunflower-svg {
         transform: scale(0.75);
     }
-    
+
     .heart {
         font-size: 6rem;
     }
-    
+
     .dedication {
         font-size: 1.4rem;
     }
+}
+
+/* ===================== CONFIGURACIÓN PÁGINA 3 ===================== */
+#page3 {
+    position: fixed;
+    /* O absolute, para que ocupe toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Importante para que las nubes no estiren la página */
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 100%);
+    /* Cielo azul */
+}
+
+/* ===================== NUBES ANIMADAS ===================== */
+.clouds-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60%;
+    /* Solo ocupan la parte superior */
+    z-index: 1;
+    /* Detrás del jardín */
+    pointer-events: none;
+}
+
+.cloud {
+    position: absolute;
+    background: #fff;
+    border-radius: 50px;
+    opacity: 0.9;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: moveClouds linear infinite;
+}
+
+/* Formas redondas extra para la nube */
+.cloud::after,
+.cloud::before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.cloud::after {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 20px;
+}
+
+.cloud::before {
+    width: 30px;
+    height: 30px;
+    top: -15px;
+    left: 5px;
+}
+
+/* Tipos de nubes */
+.c1 {
+    top: 10%;
+    left: -150px;
+    width: 120px;
+    height: 40px;
+    animation-duration: 25s;
+}
+
+.c2 {
+    top: 25%;
+    left: -150px;
+    width: 100px;
+    height: 35px;
+    animation-duration: 35s;
+    animation-delay: 5s;
+    opacity: 0.7;
+}
+
+.c3 {
+    top: 5%;
+    left: -150px;
+    width: 140px;
+    height: 50px;
+    animation-duration: 40s;
+    animation-delay: 2s;
+}
+
+.c4 {
+    top: 18%;
+    left: -150px;
+    width: 90px;
+    height: 30px;
+    animation-duration: 28s;
+    animation-delay: 12s;
+    opacity: 0.6;
+}
+
+@keyframes moveClouds {
+    0% {
+        transform: translateX(-100px);
+    }
+
+    100% {
+        transform: translateX(120vw);
+    }
+
+    /* Cruzan toda la pantalla hasta salir */
+}
+
+/* ===================== FOOTER JARDÍN ===================== */
+.garden-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    /* Altura de la zona de flores */
+    display: flex;
+    align-items: flex-end;
+    /* Alineados al suelo */
+    justify-content: center;
+    /* Centrados */
+    z-index: 10;
+}
+
+.sunflower-row {
+    display: flex;
+    justify-content: space-between;
+    /* Esparcir a lo ancho */
+    width: 100%;
+    max-width: 1200px;
+    /* Para que no se separen demasiado en pantallas gigantes */
+    padding: 0 20px;
+    align-items: flex-end;
+}
+
+/* Contenedor de cada girasol */
+.sunflower-wrapper {
+    width: 80px;
+    height: 160px;
+    position: relative;
+    transform-origin: bottom center;
+    flex-shrink: 0;
+    /* Evita que se aplasten */
+}
+
+.sunflower-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Variaciones de los girasoles */
+.s-1 {
+    height: 180px;
+    width: 90px;
+    animation: wind 4s ease-in-out infinite;
+}
+
+.s-2 {
+    height: 220px;
+    width: 110px;
+    z-index: 2;
+    animation: wind 5s ease-in-out infinite reverse;
+}
+
+/* Más altos y al frente */
+.s-3 {
+    height: 150px;
+    width: 70px;
+    animation: wind 3.5s ease-in-out infinite 1s;
+}
+
+/* Animación del viento */
+@keyframes wind {
+    0% {
+        transform: rotate(-3deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    100% {
+        transform: rotate(-3deg);
+    }
+}
+
+/* Césped base */
+.grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to top, #4CAF50, #2E7D32);
+    z-index: 5;
+    border-top: 2px solid #66BB6A;
 }

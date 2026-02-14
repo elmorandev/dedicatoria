@@ -23,7 +23,7 @@ const authorName = '- Joao Nevárez';
 heartClick.addEventListener('click', () => {
     page1.classList.add('hidden');
     page2.classList.remove('hidden');
-    
+
     // Después de 2.5 segundos, ir a la página 3
     setTimeout(() => {
         page2.classList.add('hidden');
@@ -54,10 +54,10 @@ backBtnTop.addEventListener('click', () => {
 function startTypingAnimation() {
     typedText.classList.add('typing');
     typedText.textContent = '';
-    
+
     let index = 0;
     const speed = 30; // velocidad en ms
-    
+
     function typeCharacter() {
         if (index < dedicatoryMessage.length) {
             const char = dedicatoryMessage.charAt(index);
@@ -71,14 +71,14 @@ function startTypingAnimation() {
             signature.classList.add('visible');
         }
     }
-    
+
     typeCharacter();
 }
 
 // Efecto de interacción con los girasoles (opcional)
 document.addEventListener('DOMContentLoaded', () => {
     const sunflowers = document.querySelectorAll('.sunflower-svg');
-    
+
     sunflowers.forEach((sunflower, index) => {
         sunflower.addEventListener('click', () => {
             // Pequeña animación al hacer click
