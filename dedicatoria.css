@@ -12,18 +12,15 @@ body {
     overflow: hidden;
 }
 
-/* CONTENEDOR PRINCIPAL */
+/* PRINCIPAL */
 .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Esto centra verticalmente */
     align-items: center;
-    /* Esto centra horizontalmente */
     min-height: 100vh;
-    /* Fallback para navegadores viejos */
     min-height: 100dvh;
-    /* IMPORTANTE: Altura dinámica real en móviles */
+    /* Altura dinámica en móviles */
     width: 100%;
     text-align: center;
     position: fixed;
@@ -49,9 +46,9 @@ body {
     z-index: -1;
 }
 
-/* ===================== PÁGINA 1: PRESENTACIÓN ===================== */
+/* ===================== PÁGINA 1 ===================== */
 
-/* CORAZÓN ANIMADO */
+/* corazon */
 .heart {
     color: #e91e63;
     font-size: 8rem;
@@ -94,7 +91,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* ===================== PÁGINA 2: TRANSICIÓN ===================== */
+/* ===================== PÁGINA 2 ===================== */
 
 .fade-transition-container {
     text-align: center;
@@ -116,7 +113,7 @@ body {
     }
 }
 
-/* ===================== PÁGINA 3: CARTA + JARDÍN ===================== */
+/* ===================== PÁGINA 3 ===================== */
 
 .page-3 {
     padding: 2rem;
@@ -128,7 +125,6 @@ body {
             #fce4ec 100%);
 }
 
-/* BOTÓN VOLVER EN LA PARTE SUPERIOR */
 .back-btn-top {
     position: absolute;
     top: 20px;
@@ -155,7 +151,6 @@ body {
     transform: scale(0.98);
 }
 
-/* WRAPPER DE CONTENIDO (DOS COLUMNAS) */
 .content-wrapper {
     display: flex;
     justify-content: center;
@@ -168,19 +163,17 @@ body {
     z-index: 30;
 }
 
-/* ===================== CARTA MEJORADA ===================== */
+/* ===================== CARTA ===================== */
 
 .letter-section {
     position: relative;
     z-index: 20;
-    /* Por encima de nubes y girasoles */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px;
     margin-top: 20px;
-    /* Separación superior */
     margin-bottom: 180px;
     /* Espacio inferior para ver los girasoles del footer */
     box-sizing: border-box;
@@ -188,38 +181,27 @@ body {
 
 .card-letter {
     background: #fffcf5;
-    /* Color papel crema suave */
     width: 100%;
     max-width: 600px;
-    /* Ancho máximo de lectura cómodo */
     min-height: 300px;
-    /* Limitamos la altura para que no tape toda la pantalla si el texto es muy largo */
     max-height: 60vh;
     overflow-y: auto;
-    /* Scroll suave si el texto es muy largo */
 
     padding: 40px;
     border-radius: 15px;
-    /* Bordes redondeados */
     box-shadow:
         0 10px 30px rgba(0, 0, 0, 0.15),
-        /* Sombra principal */
         0 0 0 1px rgba(0, 0, 0, 0.02);
-    /* Borde sutil */
-
-    /* Tipografía manuscrita pero legible */
     font-family: 'Indie Flower', cursive;
     font-size: 1.3rem;
     line-height: 1.8;
-    /* Espaciado entre líneas para que respire */
     color: #4e342e;
-    /* Color café oscuro (más suave que el negro) */
 
     position: relative;
     transition: transform 0.3s ease;
 }
 
-/* Scrollbar personalizado y bonito (para Chrome/Safari/Edge) */
+/* Scrolbar personalizado (Chrome/Safari/Edge) */
 .card-letter::-webkit-scrollbar {
     width: 8px;
 }
@@ -238,14 +220,11 @@ body {
     background: #a1887f;
 }
 
-/* Área de escritura */
 .typing-area {
     white-space: pre-line;
-    /* Respeta los saltos de línea del JS */
     min-height: 150px;
 }
 
-/* Cursor de máquina de escribir */
 .typing-area::after {
     content: '|';
     display: inline-block;
@@ -253,7 +232,7 @@ body {
     color: #e91e63;
 }
 
-/* Clase para ocultar el cursor cuando termine de escribir */
+/* Ocultar el cursor cuando termine de escribir */
 .typing-area.finished::after {
     display: none;
 }
@@ -702,7 +681,7 @@ body {
     }
 }
 
-/* MEDIA QUERIES PARA RESPONSIVIDAD */
+/* MEDIA QUERIES (RESPONSIVIDAD) */
 @media (max-width: 1024px) {
     .content-wrapper {
         gap: 2rem;
@@ -765,9 +744,7 @@ body {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    /* Importante para que las nubes no estiren la página */
     background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 100%);
-    /* Cielo azul */
 }
 
 /* ===================== NUBES ANIMADAS ===================== */
@@ -777,9 +754,7 @@ body {
     left: 0;
     width: 100%;
     height: 60%;
-    /* Solo ocupan la parte superior */
     z-index: 1;
-    /* Detrás del jardín */
     pointer-events: none;
 }
 
@@ -792,7 +767,6 @@ body {
     animation: moveClouds linear infinite;
 }
 
-/* Formas redondas extra para la nube */
 .cloud::after,
 .cloud::before {
     content: '';
@@ -861,8 +835,6 @@ body {
     100% {
         transform: translateX(120vw);
     }
-
-    /* Cruzan toda la pantalla hasta salir */
 }
 
 /* ===================== FOOTER JARDÍN ===================== */
@@ -872,34 +844,27 @@ body {
     left: 0;
     width: 100%;
     height: 250px;
-    /* Altura de la zona de flores */
     display: flex;
     align-items: flex-end;
-    /* Alineados al suelo */
     justify-content: center;
-    /* Centrados */
     z-index: 10;
 }
 
 .sunflower-row {
     display: flex;
     justify-content: space-between;
-    /* Esparcir a lo ancho */
     width: 100%;
     max-width: 1200px;
-    /* Para que no se separen demasiado en pantallas gigantes */
     padding: 0 20px;
     align-items: flex-end;
 }
 
-/* Contenedor de cada girasol */
 .sunflower-wrapper {
     width: 80px;
     height: 160px;
     position: relative;
     transform-origin: bottom center;
     flex-shrink: 0;
-    /* Evita que se aplasten */
 }
 
 .sunflower-svg {
@@ -908,7 +873,6 @@ body {
     overflow: visible;
 }
 
-/* Variaciones de los girasoles */
 .s-1 {
     height: 180px;
     width: 90px;
@@ -922,14 +886,12 @@ body {
     animation: wind 5s ease-in-out infinite reverse;
 }
 
-/* Más altos y al frente */
 .s-3 {
     height: 150px;
     width: 70px;
     animation: wind 3.5s ease-in-out infinite 1s;
 }
 
-/* Animación del viento */
 @keyframes wind {
     0% {
         transform: rotate(-3deg);
@@ -956,45 +918,32 @@ body {
     border-top: 2px solid #66BB6A;
 }
 
-/* ===================== RESPONSIVE (MÓVIL) ===================== */
+/* ===================== RESPONSIVE ===================== */
 
 @media (max-width: 768px) {
 
-    /* 1. Ajustar la posición de la carta */
     .letter-section {
         margin-bottom: 100px;
-        /* Reducimos el margen inferior (antes 180px) para bajar la carta */
         padding: 15px;
-        /* Menos padding lateral */
         align-items: center;
-        /* Asegura centrado vertical */
     }
 
-    /* 2. Optimizar el tamaño de la carta */
     .card-letter {
         padding: 25px;
-        /* Más espacio interno para texto */
         max-height: 65dvh;
-        /* Permitir que sea un poco más alta si es necesario */
         width: 90%;
-        /* Que ocupe buen ancho */
         font-size: 1.1rem;
-        /* Letra un pelín más pequeña pero legible */
     }
-
-    /* 3. Ajustar el título o firma */
+    
     .signature {
         font-size: 1.5rem;
         margin-top: 20px;
     }
 
-    /* 4. Reducir altura del jardín para dar espacio a la carta */
     .garden-footer {
         height: 160px;
-        /* Flores más bajitas para que no tapen la carta */
     }
-
-    /* 5. Ajustar tamaño de girasoles individuales */
+    
     .sunflower-wrapper {
         width: 60px;
         height: 120px;
@@ -1010,13 +959,11 @@ body {
         height: 140px;
     }
 
-    /* El más alto */
     .s-3 {
         width: 45px;
         height: 90px;
     }
 
-    /* Ocultar girasoles extra si hay demasiados para el ancho del móvil */
     .sunflower-row .sunflower-wrapper:nth-child(1),
     .sunflower-row .sunflower-wrapper:nth-last-child(1) {
         display: none;
