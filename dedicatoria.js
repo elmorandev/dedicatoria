@@ -9,21 +9,11 @@ const signature = document.getElementById('signature');
 const fadeTransitionContainer = document.querySelector('.fade-transition-container');
 
 // Mensaje dedicatoria
-const dedicatoryMessage = `Zori preciosa, quien diría que el reencuentro en julio de 2023 
-terminaría tan enganchado  a una persona tan hermosa y picada como tu. 
-Hemos pasado por mil situaciones que nos alejaron y nos volvieron a juntar,
-pero aquí estamos, y la verdad es que no lo cambio por nada.
+const dedicatoryMessage = `Este es un mensaje de prueba para mencionar que Lizbeth Tutillo 
+es una persona increíble, simpatica y maravillosa. Su dedicación y pasión por lo que hace son inspiradoras. 
+Que este mensaje sea un recordatorio de lo especial que eres y de la huella positiva que dejas en quienes te rodean. ¡Sigue brillando y alcanzando tus sueños!     🌟`;
 
-Es lo hermoso de nuestra dinámica: desde cómo nos tratamos hasta ese jadeo tan tuyo cuando te sientes halagada (me doy cuenta y me fascina).
-Como hoy es un día especial, no quería dejar pasar la oportunidad de 
-preguntarte formalmente: 
-
-¿Quieres ser mi San Valentín? ❤️
-
-No es competencia, pero si dices que sí, creo que esta vez gano yo por 
-permitirme estar a tu lado.`;
-
-const authorName = '- Joao Nevárez (Elmorandx) ';
+const authorName = '- Anónimo seguidor suyo ❤️';
 
 // Función para pasar a la página 2 (transición)
 heartClick.addEventListener('click', () => {
